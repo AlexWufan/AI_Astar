@@ -25,8 +25,10 @@ public class Maze {
 	public void initMaze(Integer width,Integer length){
 		
 		grid = new boolean[width][length];
+
 		path = new boolean[width][length];
 		visit = new boolean[width][length];
+
 		Random rand = new Random();
 		startPoint = new ArrayList<Integer>();	
 		startPoint.add(rand.nextInt(length));
@@ -37,6 +39,43 @@ public class Maze {
 		grid[startPoint.get(0)][startPoint.get(1)] = true;
 		visit[startPoint.get(0)][startPoint.get(1)] = true;
 		dfsGenerate();
+	}
+	
+	public void printMaze(){
+		for(int i = 0; i < grid.length; i++)
+		{
+			for(int j = 0; j < grid[0].length; j++)
+			{
+				if(grid[i][j] == false)
+				{
+					System.out.print("1");
+				}
+				else
+				{
+					System.out.print("0");
+				}		
+			}	
+			System.out.println("");
+		}
+		
+	}
+	
+	public void printPath(){
+		for(int i = 0; i < path.length; i++)
+		{
+			for(int j = 0; j < path[0].length; j++)
+			{
+				if(path[i][j] == false)
+				{
+					System.out.print("1");
+				}
+				else
+				{
+					System.out.print("0");
+				}		
+			}	
+			System.out.println("");
+		}
 	}
 	
 	private void dfsGenerate(){
