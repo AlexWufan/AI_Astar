@@ -7,6 +7,7 @@ public class AI_Astar {
 		Maze maze = new Maze(101,101);
 
 		maze.printMaze();
+		System.out.println("");
 		maze.printPath();
 		
 
