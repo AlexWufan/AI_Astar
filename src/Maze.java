@@ -61,18 +61,22 @@ public class Maze {
 	}
 	
 	public void printPath(){
-		for(int i = 0; i < path.length; i++)
+		for(int i = 0; i < grid.length; i++)
 		{
-			for(int j = 0; j < path[0].length; j++)
+			for(int j = 0; j < grid[0].length; j++)
 			{
-				if(path[i][j] == false)
+				if(grid[i][j] == false)
 				{
 					System.out.print("1");
 				}
-				else
+				else if (path[i][j] == true)
+				{
+					System.out.print("2");
+				}		
+				else 
 				{
 					System.out.print("0");
-				}		
+				}
 			}	
 			System.out.println("");
 		}
