@@ -17,7 +17,7 @@ public class AI_Astar {
 		maze.repeatedFAstar();
 		int b = maze.numOfExpandNodes;
 		System.out.println("");
-//		maze.repeatedBAstar();
+		maze.repeatedBAstar();
 	}
 
 		

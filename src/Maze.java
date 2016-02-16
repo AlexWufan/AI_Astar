@@ -202,9 +202,6 @@ public class Maze {
 		
 	}
 	
-	
-	
-
 	private void ComputePath()
 	{
 		//System.out.println("****");
@@ -304,6 +301,11 @@ public class Maze {
 			first = open.firstEntry();
 			pList = first.getValue();
 			s = pList.get(0);
+			for(List<Integer> n : pList)
+			{
+				if(goal[n.get(0)][n.get(1)] > goal[s.get(0)][s.get(1)]);
+					s = n;
+			}
 //			if(first.getKey() == goal[targetPoint.get(0)][targetPoint.get(1)])
 //			{
 //				System.out.println("1st");
@@ -515,8 +517,16 @@ public class Maze {
 			if(open.size() == 0)
 				break;
 			first = open.firstEntry();
-			pList = first.getValue();
+			pList = first.getValue();//list of nodes with same f value;
 			s = pList.get(0);
+			///choose a strategy to pick nodes that have same values
+			for(List<Integer> n : pList)
+			{
+				if(goal[n.get(0)][n.get(1)] > goal[s.get(0)][s.get(1)]);
+					s = n;
+			}
+			
+			
 		}
 		gValueOfG =  goal[targetPoint.get(0)][targetPoint.get(1)];
 	}
@@ -660,10 +670,12 @@ public class Maze {
 		visit[startPoint.get(0)][startPoint.get(1)] = true;
 		
 	}
+	// calculate nomarl H value
 	private int h(List<Integer> s)
 	{
 		return Math.abs(targetPoint.get(1) - s.get(1)) + Math.abs(targetPoint.get(0) - s.get(0));
 	}
+	// caculate hNew value
 	private int hNew(List<Integer> s)
 	{
 		if(gValueOfG > 0 && expanded[s.get(0)][s.get(1)])
