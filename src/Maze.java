@@ -11,6 +11,7 @@ public class Maze {
 	boolean[][] visit;
 	boolean[][] grid;
 	boolean[][] expanded;
+	boolean[][] closelist;
 	List<Integer> startPoint;
 	List<Integer> start;
 	List<Integer> targetPoint;
@@ -206,7 +207,7 @@ public class Maze {
 
 	private void ComputePath()
 	{
-		System.out.println("****");
+		//System.out.println("****");
 		Entry <Integer,List<List<Integer>>> first = open.firstEntry();
 		List<List<Integer>> pList = first.getValue();
 		List<Integer> s = pList.get(0);
@@ -214,8 +215,8 @@ public class Maze {
 		{
 			numOfExpandNodes++;
 			//this.expanded[s.get(0)][s.get(1)] = true;
-			System.out.println(s);
-			System.out.println(open);
+			//System.out.println(s);
+			//System.out.println(open);
 			if(!close.containsKey(first.getKey()))
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
@@ -416,7 +417,7 @@ public class Maze {
 
 	private void adaptiveComputePath()
 	{
-		System.out.println("***");
+		//System.out.println("***");
 		Entry <Integer,List<List<Integer>>> first = open.firstEntry();
 		List<List<Integer>> pList = first.getValue();
 		List<Integer> s = pList.get(0);
@@ -428,8 +429,8 @@ public class Maze {
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
 			expanded[s.get(0)][s.get(1)] = true;
-			System.out.println(s);
-			System.out.println(open);
+			//System.out.println(s);
+			//System.out.println(open);
 			pList.remove(0);
 			if(pList.size() == 0)
 			{
@@ -479,6 +480,7 @@ public class Maze {
 			
 			for(List<Integer> p:tmp)
 			{
+				if(path[p.get(0)][p.get(1)] == true) continue;
 				if(search[p.get(0)][p.get(1)]  < counter)
 				{
 					goal[p.get(0)][p.get(1)] = Integer.MAX_VALUE;
@@ -599,6 +601,7 @@ public class Maze {
 				}
 				route_final.add(p);
 				startPoint = p;
+				path[p.get(0)][p.get(1)] = true;
 				setCost(p);
 			}
 		}
@@ -664,7 +667,7 @@ public class Maze {
 	private int hNew(List<Integer> s)
 	{
 		if(gValueOfG > 0 && expanded[s.get(0)][s.get(1)])
-			return gValueOfG - goal[s.get(0)][s.get(1)];
+			return (gValueOfG - goal[s.get(0)][s.get(1)]) > h(s) ? (gValueOfG - goal[s.get(0)][s.get(1)]):h(s);
 		else 
 			return h(s);
 	}
