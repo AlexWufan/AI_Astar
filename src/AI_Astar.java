@@ -8,7 +8,7 @@ public class AI_Astar {
 		maze.printMaze();
 		System.out.println(maze.startPoint);
 		System.out.println(maze.targetPoint);
-		maze.repeatedFAstar();
+		maze.adaptiveAstar();
 		System.out.println("");
 		maze.printPath();
 	}

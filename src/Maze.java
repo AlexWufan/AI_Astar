@@ -483,21 +483,22 @@ public class Maze {
 				int cost = visit[p.get(0)][p.get(1)]&& !grid[p.get(0)][p.get(1)] ? Integer.MAX_VALUE:1;
 				if(goal[p.get(0)][p.get(1)] > goal[s.get(0)][s.get(1)] + cost)
 				{
+					int g = goal[p.get(0)][p.get(1)];
 					goal[p.get(0)][p.get(1)] = goal[s.get(0)][s.get(1)] + cost;
 					tree[p.get(0)][p.get(1)][0] = s.get(0);
 					tree[p.get(0)][p.get(1)][1] = s.get(1);
-					if(open.containsKey(goal[p.get(0)][p.get(1)] - cost))
+					if(open.containsKey(g + hNew(p)))
 					{
-						List<List<Integer>> l = open.get(goal[p.get(0)][p.get(1)] - cost);
+						List<List<Integer>> l = open.get(g + hNew(p));
 						if(l.contains(p))
 						{
 							l.remove(p);
 						}
 					}
 					List<List<Integer>> l = new ArrayList<List<Integer>>();
-					if(open.containsKey(goal[p.get(0)][p.get(1)]))
+					if(open.containsKey(goal[p.get(0)][p.get(1)] + hNew(p)))
 					{
-						l = open.get(goal[p.get(0)][p.get(1)]);
+						l = open.get(goal[p.get(0)][p.get(1)] + hNew(p));
 					}
 					l.add(p);
 					open.put(goal[p.get(0)][p.get(1)] + hNew(p),l);
