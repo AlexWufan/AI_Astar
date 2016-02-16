@@ -405,6 +405,14 @@ public class Maze {
 		}
 	}
 	
+	public void repeatedBAstar()
+	{
+		List<Integer> tmp = startPoint;
+		startPoint = targetPoint;
+		start = targetPoint;
+		targetPoint = tmp;
+		repeatedFAstar();
+	}
 	
 }
 
