@@ -10,6 +10,7 @@ public class Maze {
 	boolean[][] path;
 	boolean[][] visit;
 	boolean[][] grid;
+	boolean[][] expanded;
 	List<Integer> startPoint;
 	List<Integer> start;
 	List<Integer> targetPoint;
@@ -128,7 +129,7 @@ public class Maze {
 			List<Integer> curPoint = stack.pop();
 			Random rand = new Random();
 			visit[curPoint.get(0)][curPoint.get(1)] = true;
-			System.out.println(curPoint);
+			//System.out.println(curPoint);
 			int x = curPoint.get(0);
 			int y = curPoint.get(1);
 			if(curPoint != startPoint)
@@ -200,28 +201,21 @@ public class Maze {
 		
 	}
 	
-	private int h(List<Integer> s)
-	{
-		return Math.abs(targetPoint.get(1) - s.get(1)) + Math.abs(targetPoint.get(0) - s.get(0));
-	}
 	
-	private int hNew(List<Integer> s)
-	{
-		if(gValueOfG > 0)
-			return gValueOfG - goal[s.get(0)][s.get(1)];
-		else 
-			return h(s);
-	}
+	
 
 	private void ComputePath()
 	{
-	
+		System.out.println("****");
 		Entry <Integer,List<List<Integer>>> first = open.firstEntry();
 		List<List<Integer>> pList = first.getValue();
 		List<Integer> s = pList.get(0);
 		while(goal[targetPoint.get(0)][targetPoint.get(1)] >  first.getKey())
 		{
 			numOfExpandNodes++;
+			//this.expanded[s.get(0)][s.get(1)] = true;
+			System.out.println(s);
+			System.out.println(open);
 			if(!close.containsKey(first.getKey()))
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
@@ -282,7 +276,7 @@ public class Maze {
 				int cost = 1;
 				if(goal[p.get(0)][p.get(1)] > goal[s.get(0)][s.get(1)] + cost)
 				{
-					System.out.println(p);
+					//System.out.println(p);
 					int g = goal[p.get(0)][p.get(1)];
 					goal[p.get(0)][p.get(1)] = goal[s.get(0)][s.get(1)] + cost;
 					tree[p.get(0)][p.get(1)][0] = s.get(0);
@@ -309,10 +303,10 @@ public class Maze {
 			first = open.firstEntry();
 			pList = first.getValue();
 			s = pList.get(0);
-			if(first.getKey() == goal[targetPoint.get(0)][targetPoint.get(1)])
-			{
-				System.out.println("1st");
-			}
+//			if(first.getKey() == goal[targetPoint.get(0)][targetPoint.get(1)])
+//			{
+//				System.out.println("1st");
+//			}
 		}
 	}
 	
@@ -323,6 +317,7 @@ public class Maze {
 		search = new int[width][length];
 		goal = new int[width][length];
 		visit = new boolean[width][length];
+		this.expanded = new boolean[width][length];
 		counter = 0;
 		setCost(startPoint);
 		List<List<Integer>> route_final = new ArrayList<List<Integer>>();
@@ -351,15 +346,15 @@ public class Maze {
 			List<List<Integer>> route= new ArrayList<List<Integer>>();
 			point = targetPoint;
 			for(int i = 0; i < length; i++)
-			{
-				for(int j = 0; j < width; j++)
-				{
-					System.out.print(tree[i][j][0]);
-					System.out.print(tree[i][j][1]);
-					System.out.print(" ");
-				}
-				System.out.println("");
-			}
+//			{
+//				for(int j = 0; j < width; j++)
+//				{
+//					System.out.print(tree[i][j][0]);
+//					System.out.print(tree[i][j][1]);
+//					System.out.print(" ");
+//				}
+//				System.out.println("");
+//			}
 			while(!point.equals(startPoint))
 			{
 				route.add(point);
@@ -421,16 +416,20 @@ public class Maze {
 
 	private void adaptiveComputePath()
 	{
-	
+		System.out.println("***");
 		Entry <Integer,List<List<Integer>>> first = open.firstEntry();
 		List<List<Integer>> pList = first.getValue();
 		List<Integer> s = pList.get(0);
 		while(goal[targetPoint.get(0)][targetPoint.get(1)] >  first.getKey())
 		{
+			
 			numOfExpandNodes++;
 			if(!close.containsKey(first.getKey()))
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
+			expanded[s.get(0)][s.get(1)] = true;
+			System.out.println(s);
+			System.out.println(open);
 			pList.remove(0);
 			if(pList.size() == 0)
 			{
@@ -445,12 +444,10 @@ public class Maze {
 			List<ArrayList<Integer>>  tmp = new ArrayList<ArrayList<Integer>>();
 			if(x - 1 >= 0)
 			{
-
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x - 1);
 					t.add(y);
 						tmp.add(t);
-
 			}
 			
 			if(x+ 1 <length )
@@ -474,12 +471,10 @@ public class Maze {
 			}
 			if(y + 1 < width)
 			{
-
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x );
 					t.add(y + 1);
 					tmp.add(t);
-
 			}
 			
 			for(List<Integer> p:tmp)
@@ -489,11 +484,11 @@ public class Maze {
 					goal[p.get(0)][p.get(1)] = Integer.MAX_VALUE;
 					search[p.get(0)][p.get(1)] = counter;
 				}
-				int cost = visit[p.get(0)][p.get(1)]&& !grid[p.get(0)][p.get(1)] ? width+length:1;
 				
+				if(visit[p.get(0)][p.get(1)]&&!grid[p.get(0)][p.get(1)]) continue;
+				int cost = 1;
 				if(goal[p.get(0)][p.get(1)] > goal[s.get(0)][s.get(1)] + cost)
 				{
-					System.out.println(p);
 					int g = goal[p.get(0)][p.get(1)];
 					goal[p.get(0)][p.get(1)] = goal[s.get(0)][s.get(1)] + cost;
 					tree[p.get(0)][p.get(1)][0] = s.get(0);
@@ -522,7 +517,6 @@ public class Maze {
 			s = pList.get(0);
 		}
 		gValueOfG =  goal[targetPoint.get(0)][targetPoint.get(1)];
-		
 	}
 
 	public void adaptiveAstar()
@@ -532,13 +526,16 @@ public class Maze {
 		search = new int[width][length];
 		goal = new int[width][length];
 		visit = new boolean[width][length];
+		expanded = new boolean[width][length];
 		counter = 0;
 		gValueOfG = -1;
-		tree = new int[width][length][2];
+		
 		setCost(startPoint);
 		List<Integer> point;
+		List<List<Integer>> route_final = new ArrayList<List<Integer>>();
 		while(!startPoint.equals(targetPoint))
 		{
+			tree = new int[width][length][2];
 			counter = counter + 1;
 			search[startPoint.get(0)][startPoint.get(1)] = counter;
 			goal[startPoint.get(0)][startPoint.get(1)] = 0;
@@ -546,9 +543,10 @@ public class Maze {
 			goal[targetPoint.get(0)][targetPoint.get(1)] = Integer.MAX_VALUE;
 			open = new TreeMap<Integer,List<List<Integer>>>();
 			close = new TreeMap();
+			
 			List<List<Integer>> L = new ArrayList<List<Integer>> ();
 			L.add(startPoint);
-			open.put(goal[startPoint.get(0)][startPoint.get(1)] + hNew(startPoint),L);
+			open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
 			adaptiveComputePath();
 
 			if(open.isEmpty())
@@ -559,7 +557,28 @@ public class Maze {
 			}
 			List<List<Integer>> route= new ArrayList<List<Integer>>();
 			point = targetPoint;
-			while(!(point.get(0) == startPoint.get(0) && point.get(1) == startPoint.get(1)))
+//			for(int i = 0; i < length; i++)
+//			{
+//				for(int j = 0; j < width; j++)
+//				{
+//					System.out.print(tree[i][j][0]);
+//					System.out.print(tree[i][j][1]);
+//					System.out.print(" ");
+//				}
+//				System.out.println("");
+//			}
+//			for(int i = 0; i < length; i++)
+//			{
+//				for(int j = 0; j < width; j++)
+//				{
+//					System.out.print(expanded[i][j]);
+//					//System.out.print(expanded[i][j][1]);
+//					System.out.print(" ");
+//				}
+//				System.out.println("");
+//			}
+			
+			while(!point.equals(startPoint))
 			{
 				route.add(point);
 				List<Integer>tmp =new ArrayList<Integer>();
@@ -578,6 +597,7 @@ public class Maze {
 					startPoint = route.get(i + 1);
 					break;
 				}
+				route_final.add(p);
 				startPoint = p;
 				setCost(p);
 			}
@@ -585,14 +605,18 @@ public class Maze {
 		point = targetPoint;
 		if(success)
 		{
-			while(!point.equals(start))
+			for(List<Integer> a : route_final)
 			{
-				path[point.get(0)][point.get(1)] = true;
-				List<Integer>tmp =new ArrayList<Integer>();
-				tmp.add(tree[point.get(0)][point.get(1)][0]);
-				tmp.add(tree[point.get(0)][point.get(1)][1]);
-				point = tmp;
+				path[a.get(0)][a.get(1)] = true;
 			}
+//			while(!point.equals(start))
+//			{
+//				path[point.get(0)][point.get(1)] = true;
+//				List<Integer>tmp =new ArrayList<Integer>();
+//				tmp.add(tree[point.get(0)][point.get(1)][0]);
+//				tmp.add(tree[point.get(0)][point.get(1)][1]);
+//				point = tmp;
+//			}
 			System.out.println("I reached the target");
 		}
 		System.out.println("");
@@ -606,12 +630,12 @@ public class Maze {
 		this.width = 5;
 		this.length = 5;
 		this.startPoint = new ArrayList<Integer>();
-		this.startPoint.add(4);
-		this.startPoint.add(2);
+		this.startPoint.add(1);
+		this.startPoint.add(0);
 		this.start = this.startPoint;
 		this.targetPoint = new ArrayList<Integer>();
-		this.targetPoint.add(4);
-		this.targetPoint.add(4);
+		this.targetPoint.add(2);
+		this.targetPoint.add(3);
 		this.grid = new boolean[width][length];
 		for(int i = 0; i < length; i++)
 		{
@@ -620,19 +644,31 @@ public class Maze {
 				grid[i][j] = true;
 			}
 		}
-		grid[1][2] = false;
+		grid[0][0] = false;
+		grid[3][0] = false;
 		grid[2][2] = false;
-		grid[3][2] = false;
-		//grid[3][3] = false;
-		grid[4][3] = false;
+		grid[0][3] = false;
+		grid[4][2] = false;
+		grid[3][4] = false;
+		grid[4][4] = false;
 		path = new boolean[width][length];
 		visit = new boolean[width][length];
 		//grid[startPoint.get(0)][startPoint.get(1)] = true;
 		visit[startPoint.get(0)][startPoint.get(1)] = true;
 		
 	}
-	
-	
+	private int h(List<Integer> s)
+	{
+		return Math.abs(targetPoint.get(1) - s.get(1)) + Math.abs(targetPoint.get(0) - s.get(0));
+	}
+	private int hNew(List<Integer> s)
+	{
+		if(gValueOfG > 0 && expanded[s.get(0)][s.get(1)])
+			return gValueOfG - goal[s.get(0)][s.get(1)];
+		else 
+			return h(s);
+	}
+
 }
 
 
