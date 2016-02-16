@@ -3,10 +3,6 @@
 import java.util.*;
 import java.util.Map.Entry;
 
-
-
-
-
 public class Maze {
 	
 	Integer width = 101;
@@ -14,14 +10,14 @@ public class Maze {
 	boolean[][] path;
 	boolean[][] visit;
 	boolean[][] grid;
-	int[][] hValue;
 	List<Integer> startPoint;
 	List<Integer> start;
 	List<Integer> targetPoint;
 	List<List<Integer>> unBlocked;
 	int[][][] tree;
 	boolean success = true;
-
+	int numOfExpandNodes = 0;
+	
 	int[][] search;
 	int[][] goal;
 	int counter = 0;
@@ -30,7 +26,6 @@ public class Maze {
 
 	int gValueOfG = -1;
 	
-
 	public Maze(int width, int length)
 	{
 		this.width = width;
@@ -78,7 +73,7 @@ public class Maze {
 		{
 			visit[x][y + 1] = true;
 		}
-		if(y - 1 > 0)
+		if(y - 1 >= 0)
 		{
 			visit[x][y - 1] = true;
 		}
@@ -218,7 +213,6 @@ public class Maze {
 			return h(s);
 	}
 
-
 	private void ComputePath()
 	{
 	
@@ -227,6 +221,7 @@ public class Maze {
 		List<Integer> s = pList.get(0);
 		while(goal[targetPoint.get(0)][targetPoint.get(1)] >  first.getKey())
 		{
+			numOfExpandNodes++;
 			if(!close.containsKey(first.getKey()))
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
@@ -244,47 +239,36 @@ public class Maze {
 			List<ArrayList<Integer>>  tmp = new ArrayList<ArrayList<Integer>>();
 			if(x - 1 >= 0)
 			{
-				if(grid[x - 1][y] == true)
-				{
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x - 1);
 					t.add(y);
 						tmp.add(t);
-				}
+	
 			}
 			
 			if(x+ 1 <length )
 			{
-				if(grid[x + 1][y] == true)
-				{
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x + 1);
 					t.add(y);
 					
 						tmp.add(t);
-					
-				}
+
 			}
 			if(y - 1 >= 0)
 			{
-				if(grid[x][y - 1] == true)
-				{
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x);
 					t.add(y -1);
 					tmp.add(t);
-					
-				}
+
 			}
 			if(y + 1 < width)
 			{
-				if(grid[x][y + 1] == true)
-				{
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x );
 					t.add(y + 1);
 					tmp.add(t);
-				}
 			}
 			
 			for(List<Integer> p:tmp)
@@ -294,9 +278,11 @@ public class Maze {
 					goal[p.get(0)][p.get(1)] = Integer.MAX_VALUE;
 					search[p.get(0)][p.get(1)] = counter;
 				}
-				int cost = visit[p.get(0)][p.get(1)]&& !grid[p.get(0)][p.get(1)] ? Integer.MAX_VALUE:1;
+				if(visit[p.get(0)][p.get(1)]&&!grid[p.get(0)][p.get(1)]) continue;
+				int cost = 1;
 				if(goal[p.get(0)][p.get(1)] > goal[s.get(0)][s.get(1)] + cost)
 				{
+					System.out.println(p);
 					int g = goal[p.get(0)][p.get(1)];
 					goal[p.get(0)][p.get(1)] = goal[s.get(0)][s.get(1)] + cost;
 					tree[p.get(0)][p.get(1)][0] = s.get(0);
@@ -323,18 +309,23 @@ public class Maze {
 			first = open.firstEntry();
 			pList = first.getValue();
 			s = pList.get(0);
+			if(first.getKey() == goal[targetPoint.get(0)][targetPoint.get(1)])
+			{
+				System.out.println("1st");
+			}
 		}
 	}
 	
 	public void repeatedFAstar()
 	{
-		
+		path = new boolean[width][length];
+		numOfExpandNodes = 0;
 		search = new int[width][length];
 		goal = new int[width][length];
 		visit = new boolean[width][length];
 		counter = 0;
-		tree = new int[width][length][2];
 		setCost(startPoint);
+		List<List<Integer>> route_final = new ArrayList<List<Integer>>();
 		List<Integer> point;
 		while(!startPoint.equals(targetPoint))
 		{
@@ -348,6 +339,7 @@ public class Maze {
 			List<List<Integer>> L = new ArrayList<List<Integer>> ();
 			L.add(startPoint);
 			open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
+			tree = new int[width][length][2];
 			ComputePath();
 
 			if(open.isEmpty())
@@ -358,7 +350,17 @@ public class Maze {
 			}
 			List<List<Integer>> route= new ArrayList<List<Integer>>();
 			point = targetPoint;
-			while(!(point.get(0) == startPoint.get(0) && point.get(1) == startPoint.get(1)))
+			for(int i = 0; i < length; i++)
+			{
+				for(int j = 0; j < width; j++)
+				{
+					System.out.print(tree[i][j][0]);
+					System.out.print(tree[i][j][1]);
+					System.out.print(" ");
+				}
+				System.out.println("");
+			}
+			while(!point.equals(startPoint))
 			{
 				route.add(point);
 				List<Integer>tmp =new ArrayList<Integer>();
@@ -378,22 +380,30 @@ public class Maze {
 					break;
 				}
 				startPoint = p;
+				route_final.add(p);
 				setCost(p);
 			}
 		}
 		point = targetPoint;
 		if(success)
 		{
-			while(!point.equals(start))
+			for(List<Integer> a : route_final)
 			{
-				path[point.get(0)][point.get(1)] = true;
-				List<Integer>tmp =new ArrayList<Integer>();
-				tmp.add(tree[point.get(0)][point.get(1)][0]);
-				tmp.add(tree[point.get(0)][point.get(1)][1]);
-				point = tmp;
+				path[a.get(0)][a.get(1)] = true;
 			}
+//			while(!point.equals(start))
+//			{
+//				path[point.get(0)][point.get(1)] = true;
+//				List<Integer>tmp =new ArrayList<Integer>();
+//				tmp.add(tree[point.get(0)][point.get(1)][0]);
+//				tmp.add(tree[point.get(0)][point.get(1)][1]);
+//				point = tmp;
+//			}
 			System.out.println("I reached the target");
 		}
+		this.printPath();
+		System.out.println("Number of expanded nodes:" + Integer.toString(numOfExpandNodes));
+		startPoint = start;
 	}
 	
 	public void repeatedBAstar()
@@ -403,6 +413,10 @@ public class Maze {
 		start = targetPoint;
 		targetPoint = tmp;
 		repeatedFAstar();
+		tmp = start;
+		start = targetPoint;
+		startPoint = start;
+		targetPoint = tmp;
 	}
 
 	private void adaptiveComputePath()
@@ -413,6 +427,7 @@ public class Maze {
 		List<Integer> s = pList.get(0);
 		while(goal[targetPoint.get(0)][targetPoint.get(1)] >  first.getKey())
 		{
+			numOfExpandNodes++;
 			if(!close.containsKey(first.getKey()))
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
@@ -430,47 +445,41 @@ public class Maze {
 			List<ArrayList<Integer>>  tmp = new ArrayList<ArrayList<Integer>>();
 			if(x - 1 >= 0)
 			{
-				if(grid[x - 1][y] == true)
-				{
+
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x - 1);
 					t.add(y);
 						tmp.add(t);
-				}
+
 			}
 			
 			if(x+ 1 <length )
 			{
-				if(grid[x + 1][y] == true)
-				{
+	
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x + 1);
 					t.add(y);
 					
 						tmp.add(t);
-					
-				}
+		
 			}
 			if(y - 1 >= 0)
 			{
-				if(grid[x][y - 1] == true)
-				{
+
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x);
 					t.add(y -1);
 					tmp.add(t);
-					
-				}
+	
 			}
 			if(y + 1 < width)
 			{
-				if(grid[x][y + 1] == true)
-				{
+
 					ArrayList<Integer> t = new ArrayList<Integer>();
 					t.add(x );
 					t.add(y + 1);
 					tmp.add(t);
-				}
+
 			}
 			
 			for(List<Integer> p:tmp)
@@ -480,9 +489,11 @@ public class Maze {
 					goal[p.get(0)][p.get(1)] = Integer.MAX_VALUE;
 					search[p.get(0)][p.get(1)] = counter;
 				}
-				int cost = visit[p.get(0)][p.get(1)]&& !grid[p.get(0)][p.get(1)] ? Integer.MAX_VALUE:1;
+				int cost = visit[p.get(0)][p.get(1)]&& !grid[p.get(0)][p.get(1)] ? width+length:1;
+				
 				if(goal[p.get(0)][p.get(1)] > goal[s.get(0)][s.get(1)] + cost)
 				{
+					System.out.println(p);
 					int g = goal[p.get(0)][p.get(1)];
 					goal[p.get(0)][p.get(1)] = goal[s.get(0)][s.get(1)] + cost;
 					tree[p.get(0)][p.get(1)][0] = s.get(0);
@@ -511,11 +522,13 @@ public class Maze {
 			s = pList.get(0);
 		}
 		gValueOfG =  goal[targetPoint.get(0)][targetPoint.get(1)];
+		
 	}
 
 	public void adaptiveAstar()
 	{
-		
+		path = new boolean[width][length];
+		numOfExpandNodes = 0;
 		search = new int[width][length];
 		goal = new int[width][length];
 		visit = new boolean[width][length];
@@ -582,8 +595,43 @@ public class Maze {
 			}
 			System.out.println("I reached the target");
 		}
+		System.out.println("");
+		this.printPath();
+		System.out.println("Number of expanded nodes:" + Integer.toString(numOfExpandNodes));
+		startPoint = start;//reset the start Point;
 	}
-
+	
+	public void initTestCase()
+	{
+		this.width = 5;
+		this.length = 5;
+		this.startPoint = new ArrayList<Integer>();
+		this.startPoint.add(4);
+		this.startPoint.add(2);
+		this.start = this.startPoint;
+		this.targetPoint = new ArrayList<Integer>();
+		this.targetPoint.add(4);
+		this.targetPoint.add(4);
+		this.grid = new boolean[width][length];
+		for(int i = 0; i < length; i++)
+		{
+			for (int j =0; j < width; j++)
+			{
+				grid[i][j] = true;
+			}
+		}
+		grid[1][2] = false;
+		grid[2][2] = false;
+		grid[3][2] = false;
+		//grid[3][3] = false;
+		grid[4][3] = false;
+		path = new boolean[width][length];
+		visit = new boolean[width][length];
+		//grid[startPoint.get(0)][startPoint.get(1)] = true;
+		visit[startPoint.get(0)][startPoint.get(1)] = true;
+		
+	}
+	
 	
 }
 
