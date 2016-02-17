@@ -6,7 +6,7 @@ public class AI_Astar {
 		int count = 0;
 		
 
-		Maze maze = new Maze(10,10);
+		Maze maze = new Maze(101,101);
 		//maze.initTestCase();
 		maze.printMaze();
 		System.out.println(maze.startPoint);

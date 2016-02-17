@@ -174,7 +174,7 @@ public class Maze {
 					neiborPoints.add(tmp);
 				}
 			}
-			if(y - 1 > 0)
+			if(y - 1 >= 0)
 			{
 				if(!visit[x][y - 1])
 				{
