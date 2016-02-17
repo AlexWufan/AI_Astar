@@ -217,7 +217,8 @@ public class Maze {
 			if(!close.containsKey(first.getKey()))
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
-			pList.remove(0);
+			
+			pList.remove(s);
 			if(pList.size() == 0)
 			{
 				open.remove(first.getKey());
@@ -433,7 +434,7 @@ public class Maze {
 			expanded[s.get(0)][s.get(1)] = true;
 			//System.out.println(s);
 			//System.out.println(open);
-			pList.remove(0);
+			pList.remove(s);
 			if(pList.size() == 0)
 			{
 				open.remove(first.getKey());
