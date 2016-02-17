@@ -483,7 +483,7 @@ public class Maze {
 			
 			for(List<Integer> p:tmp)
 			{
-				if(path[p.get(0)][p.get(1)] == true) continue;
+				//if(path[p.get(0)][p.get(1)] == true) continue;
 				if(search[p.get(0)][p.get(1)]  < counter)
 				{
 					goal[p.get(0)][p.get(1)] = Integer.MAX_VALUE;
@@ -612,7 +612,7 @@ public class Maze {
 				}
 				route_final.add(p);
 				startPoint = p;
-				path[p.get(0)][p.get(1)] = true;
+				//path[p.get(0)][p.get(1)] = true;
 				setCost(p);
 			}
 		}
