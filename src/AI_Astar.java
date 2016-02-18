@@ -8,7 +8,7 @@ public class AI_Astar {
 		
 		for(int i = 0; i < 100; ++i)
 		{
-		Maze maze = new Maze(50,50);
+		Maze maze = new Maze(10,10);
 		//maze.initTestCase();
 		maze.printMaze();
 		System.out.println(maze.startPoint);
@@ -22,10 +22,14 @@ public class AI_Astar {
 		maze.repeatedBAstar();
 		if(maze.success)
 		{
-		if(b < a)
+		if(b > a)
 			count++;
 		else if(b == a)
 			equal++;
+		else
+		{
+			System.out.println("*");
+		}
 		}
 		}
 

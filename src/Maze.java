@@ -305,6 +305,11 @@ public class Maze {
 				break;
 			first = open.firstEntry();
 			pList = first.getValue();
+			if(pList.size() == 0)
+			{
+				open.remove(first.getKey());
+				break;
+			}
 			s = pList.get(0);
 			for(List<Integer> n : pList)
 			{
@@ -528,6 +533,11 @@ public class Maze {
 				break;
 			first = open.firstEntry();
 			pList = first.getValue();//list of nodes with same f value;
+			if(pList.size() == 0)
+			{
+				open.remove(first.getKey());
+				break;
+			}
 			s = pList.get(0);
 			///choose a strategy to pick nodes that have same values
 			for(List<Integer> n : pList)
@@ -701,7 +711,7 @@ public class Maze {
 	private int hNew(List<Integer> s)
 	{
 		if(this.hValue[s.get(0)][s.get(1)] > 0)
-			return this.hValue[s.get(0)][s.get(1)];
+			return this.hValue[s.get(0)][s.get(1)] > h(s) ? this.hValue[s.get(0)][s.get(1)] : h(s);
 //		if(gValueOfG > 0 && expanded[s.get(0)][s.get(1)])
 //		{
 //			int ret = (gValueOfG - goal[s.get(0)][s.get(1)]) > h(s) ? (gValueOfG - goal[s.get(0)][s.get(1)]):h(s);
