@@ -4,12 +4,12 @@ public class AI_Astar {
 
 	public static void main(String[] args) {
 		int count = 0;
+		int equal = 0;
 		
-
-		Maze maze = new Maze(101,101);
-		//maze.initTestCase();
 		for(int i = 0; i < 100; ++i)
 		{
+		Maze maze = new Maze(50,50);
+		//maze.initTestCase();
 		maze.printMaze();
 		System.out.println(maze.startPoint);
 		System.out.println(maze.targetPoint);	
@@ -20,10 +20,17 @@ public class AI_Astar {
 		int b = maze.numOfExpandNodes;
 		System.out.println("");
 		maze.repeatedBAstar();
-		if(b > a)
+		if(maze.success)
+		{
+		if(b < a)
 			count++;
+		else if(b == a)
+			equal++;
 		}
+		}
+
 		System.out.println(count);
+		System.out.println(equal);
 	}
 
 		

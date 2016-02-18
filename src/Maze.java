@@ -7,6 +7,7 @@ public class Maze {
 	
 	Integer width = 101;
 	Integer length = 101;
+	
 	boolean[][] path;
 	boolean[][] visit;
 	boolean[][] grid;
@@ -23,6 +24,9 @@ public class Maze {
 	int[][] search;
 	int[][] goal;
 	int counter = 0;
+	
+	int[][] hValue;
+	
 	TreeMap<Integer, List<List<Integer>>> open;
 	TreeMap <Integer,List<List<Integer>>> close;
 
@@ -316,6 +320,7 @@ public class Maze {
 	
 	public void repeatedFAstar()
 	{
+		this.hValue = new int[width][length];
 		path = new boolean[width][length];
 		numOfExpandNodes = 0;
 		search = new int[width][length];
@@ -420,10 +425,12 @@ public class Maze {
 
 	private void adaptiveComputePath()
 	{
+		List<List<Integer>> expandedNodes = new ArrayList<List<Integer>>();
 		//System.out.println("***");
 		Entry <Integer,List<List<Integer>>> first = open.firstEntry();
 		List<List<Integer>> pList = first.getValue();
 		List<Integer> s = pList.get(0);
+		
 		while(goal[targetPoint.get(0)][targetPoint.get(1)] >  first.getKey())
 		{
 			
@@ -432,6 +439,8 @@ public class Maze {
 				close.put(first.getKey(),first.getValue());
 			//open.remove(first.getKey());
 			expanded[s.get(0)][s.get(1)] = true;
+			expandedNodes.add(s);
+			
 			//System.out.println(s);
 			//System.out.println(open);
 			pList.remove(s);
@@ -530,16 +539,31 @@ public class Maze {
 			
 		}
 		gValueOfG =  goal[targetPoint.get(0)][targetPoint.get(1)];
+		for(List<Integer> node:expandedNodes)
+		{
+			this.hValue[node.get(0)][node.get(1)] = gValueOfG - this.goal[node.get(0)][node.get(1)];
+		}
+//		for(int i = 0; i < length; i++)
+//		{
+//			for(int j = 0; j < width; j++)
+//			{
+//				System.out.print(this.hValue[i][j]);
+//				System.out.print(" ");
+//			}
+//			System.out.println("");
+//		}
+		
 	}
 
 	public void adaptiveAstar()
 	{
+		this.hValue = new int[width][length];
 		path = new boolean[width][length];
 		numOfExpandNodes = 0;
 		search = new int[width][length];
 		goal = new int[width][length];
 		visit = new boolean[width][length];
-		expanded = new boolean[width][length];
+		
 		counter = 0;
 		gValueOfG = -1;
 		
@@ -556,7 +580,7 @@ public class Maze {
 			goal[targetPoint.get(0)][targetPoint.get(1)] = Integer.MAX_VALUE;
 			open = new TreeMap<Integer,List<List<Integer>>>();
 			close = new TreeMap();
-			
+			expanded = new boolean[width][length];
 			List<List<Integer>> L = new ArrayList<List<Integer>> ();
 			L.add(startPoint);
 			open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
@@ -644,12 +668,12 @@ public class Maze {
 		this.width = 5;
 		this.length = 5;
 		this.startPoint = new ArrayList<Integer>();
-		this.startPoint.add(1);
-		this.startPoint.add(0);
+		this.startPoint.add(4);
+		this.startPoint.add(2);
 		this.start = this.startPoint;
 		this.targetPoint = new ArrayList<Integer>();
-		this.targetPoint.add(2);
-		this.targetPoint.add(3);
+		this.targetPoint.add(4);
+		this.targetPoint.add(4);
 		this.grid = new boolean[width][length];
 		for(int i = 0; i < length; i++)
 		{
@@ -658,18 +682,15 @@ public class Maze {
 				grid[i][j] = true;
 			}
 		}
-		grid[0][0] = false;
-		grid[3][0] = false;
+		grid[1][2] = false;
 		grid[2][2] = false;
-		grid[0][3] = false;
-		grid[4][2] = false;
-		grid[3][4] = false;
-		grid[4][4] = false;
+		grid[3][2] = false;
+		//grid[3][3] = false;
+		grid[4][3] = false;
 		path = new boolean[width][length];
 		visit = new boolean[width][length];
 		//grid[startPoint.get(0)][startPoint.get(1)] = true;
 		visit[startPoint.get(0)][startPoint.get(1)] = true;
-		
 	}
 	// calculate nomarl H value
 	private int h(List<Integer> s)
@@ -679,8 +700,14 @@ public class Maze {
 	// caculate hNew value
 	private int hNew(List<Integer> s)
 	{
-		if(gValueOfG > 0 && expanded[s.get(0)][s.get(1)])
-			return (gValueOfG - goal[s.get(0)][s.get(1)]) > h(s) ? (gValueOfG - goal[s.get(0)][s.get(1)]):h(s);
+		if(this.hValue[s.get(0)][s.get(1)] > 0)
+			return this.hValue[s.get(0)][s.get(1)];
+//		if(gValueOfG > 0 && expanded[s.get(0)][s.get(1)])
+//		{
+//			int ret = (gValueOfG - goal[s.get(0)][s.get(1)]) > h(s) ? (gValueOfG - goal[s.get(0)][s.get(1)]):h(s);
+//			//this.hValue[s.get(0)][s.get(1)] = ret;
+//			return ret;
+//		}
 		else 
 			return h(s);
 	}
