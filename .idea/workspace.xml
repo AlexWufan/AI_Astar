@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54e22c1-54e0-43f6-9062-97cab5172e56" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AI_Astar.java" afterPath="$PROJECT_DIR$/src/AI_Astar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Maze.java" afterPath="$PROJECT_DIR$/src/Maze.java" />
     </list>
@@ -28,50 +30,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AI_Astar.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AI_Astar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AI_Astar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="26.333334">
-              <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Maze.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Maze.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Maze.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7777777">
-              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.47149462">
+              <caret line="577" column="22" selection-start-line="577" selection-start-column="22" selection-end-line="577" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2531#2546#0" expanded="true" />
-                <element signature="e#3023#3043#0" expanded="true" />
-                <element signature="e#3148#3157#0" expanded="true" />
-                <element signature="e#3335#3344#0" expanded="true" />
-                <element signature="e#3525#3534#0" expanded="true" />
-                <element signature="e#3712#3721#0" expanded="true" />
-                <element signature="e#4806#4826#0" expanded="true" />
-                <element signature="e#4894#4903#0" expanded="true" />
-                <element signature="e#5037#5046#0" expanded="true" />
-                <element signature="e#5178#5187#0" expanded="true" />
-                <element signature="e#5314#5323#0" expanded="true" />
-                <element signature="e#6160#6175#0" expanded="true" />
-                <element signature="e#7192#7207#0" expanded="true" />
-                <element signature="e#7665#7680#0" expanded="true" />
-                <element signature="e#7980#7995#0" expanded="true" />
-                <element signature="e#8363#8372#0" expanded="true" />
-                <element signature="e#9747#9762#0" expanded="true" />
-                <element signature="e#10535#10555#0" expanded="true" />
-                <element signature="e#10623#10632#0" expanded="true" />
-                <element signature="e#10766#10775#0" expanded="true" />
-                <element signature="e#10910#10919#0" expanded="true" />
-                <element signature="e#11047#11056#0" expanded="true" />
-                <element signature="e#11928#11943#0" expanded="true" />
-                <element signature="e#13354#13369#0" expanded="true" />
-                <element signature="e#13883#13898#0" expanded="true" />
-                <element signature="e#14169#14184#0" expanded="true" />
-                <element signature="e#14809#14818#0" expanded="true" />
+                <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+                <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+                <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+                <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+                <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+                <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+                <element signature="e#4563#4606#0" expanded="false" />
+                <element signature="e#6912#6983#0" expanded="false" />
+                <element signature="e#7352#7395#0" expanded="false" />
+                <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+                <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+                <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+                <element signature="method#h#0;class#Maze#0" expanded="false" />
+                <element signature="method#hNew#0;class#Maze#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -126,6 +114,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,13 +150,30 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="108" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="109" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="113" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="907" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="108" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="109" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="113" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="907" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Application.AI_Astar">
     <configuration default="false" name="AI_Astar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -463,8 +470,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -472,12 +479,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.9431818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9431818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -489,6 +495,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -514,7 +521,7 @@
     <entry file="file://$PROJECT_DIR$/src/AI_Astar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -522,36 +529,22 @@
     <entry file="file://$PROJECT_DIR$/src/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="104" column="5" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -569,34 +562,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -614,34 +593,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -659,34 +624,51 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AI_Astar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Maze.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -704,34 +686,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -749,82 +717,141 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Maze.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7777777">
-          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2531#2546#0" expanded="true" />
-            <element signature="e#3023#3043#0" expanded="true" />
-            <element signature="e#3148#3157#0" expanded="true" />
-            <element signature="e#3335#3344#0" expanded="true" />
-            <element signature="e#3525#3534#0" expanded="true" />
-            <element signature="e#3712#3721#0" expanded="true" />
-            <element signature="e#4806#4826#0" expanded="true" />
-            <element signature="e#4894#4903#0" expanded="true" />
-            <element signature="e#5037#5046#0" expanded="true" />
-            <element signature="e#5178#5187#0" expanded="true" />
-            <element signature="e#5314#5323#0" expanded="true" />
-            <element signature="e#6160#6175#0" expanded="true" />
-            <element signature="e#7192#7207#0" expanded="true" />
-            <element signature="e#7665#7680#0" expanded="true" />
-            <element signature="e#7980#7995#0" expanded="true" />
-            <element signature="e#8363#8372#0" expanded="true" />
-            <element signature="e#9747#9762#0" expanded="true" />
-            <element signature="e#10535#10555#0" expanded="true" />
-            <element signature="e#10623#10632#0" expanded="true" />
-            <element signature="e#10766#10775#0" expanded="true" />
-            <element signature="e#10910#10919#0" expanded="true" />
-            <element signature="e#11047#11056#0" expanded="true" />
-            <element signature="e#11928#11943#0" expanded="true" />
-            <element signature="e#13354#13369#0" expanded="true" />
-            <element signature="e#13883#13898#0" expanded="true" />
-            <element signature="e#14169#14184#0" expanded="true" />
-            <element signature="e#14809#14818#0" expanded="true" />
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AI_Astar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="26.333334">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Maze.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47149462">
+          <caret line="577" column="22" selection-start-line="577" selection-start-column="22" selection-end-line="577" selection-end-column="22" />
+          <folding>
+            <element signature="method#Maze#0;class#Maze#0" expanded="false" />
+            <element signature="method#initMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#setCost#0;class#Maze#0" expanded="false" />
+            <element signature="method#printMaze#0;class#Maze#0" expanded="false" />
+            <element signature="method#printPath#0;class#Maze#0" expanded="false" />
+            <element signature="method#dfsGenerate#0;class#Maze#0" expanded="false" />
+            <element signature="e#4563#4606#0" expanded="false" />
+            <element signature="e#6912#6983#0" expanded="false" />
+            <element signature="e#7352#7395#0" expanded="false" />
+            <element signature="method#repeatedBAstar#0;class#Maze#0" expanded="false" />
+            <element signature="method#adaptiveComputePath#0;class#Maze#0" expanded="false" />
+            <element signature="method#initTestCase#0;class#Maze#0" expanded="false" />
+            <element signature="method#h#0;class#Maze#0" expanded="false" />
+            <element signature="method#hNew#0;class#Maze#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>AI_Astar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

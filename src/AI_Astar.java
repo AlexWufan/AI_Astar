@@ -7,23 +7,33 @@ public class AI_Astar {
 
 		int equal = 0;
 		
-		for(int i = 0; i < 100; ++i)
-		{
+//		for(int i = 0; i < 100; ++i)
+//		{
 		Maze maze = new Maze(101,101);
 		//maze.initTestCase();
-
-		maze.printMaze();
+		//maze.printMaze();
+		System.out.println("");
+		System.out.println("startpoint and targetpoint");
 		System.out.println(maze.startPoint);
 		System.out.println(maze.targetPoint);
-		maze.adaptiveAstar();
-		int a = maze.numOfExpandNodes;
-		System.out.println("");
-		maze.repeatedFAstar();
-		int b = maze.numOfExpandNodes;
-		System.out.println("");
-		maze.repeatedBAstar();
 
-		if(maze.success)
+		//System.out.println("Adaptive A* ");
+		//maze.adaptiveAstar();
+		//int a = maze.numOfExpandNodes;
+		System.out.println("");
+		System.out.println("Repeated forward A* ");
+		maze.repeatedFAstar();
+		System.out.println("");
+		System.out.println("Repeated forward A* small g-value");
+		maze.repeatedFAstar2();
+		//int b = maze.numOfExpandNodes;
+
+		/*System.out.println("");
+		System.out.println("Repeated backward A* ");
+		maze.repeatedBAstar();*/
+
+
+/*		if(maze.success)
 		{
 		if(b > a)
 			count++;
@@ -37,7 +47,7 @@ public class AI_Astar {
 		}
 
 		System.out.println(count);
-		System.out.println(equal);
+		System.out.println(equal);*/
 	}
 
 }
