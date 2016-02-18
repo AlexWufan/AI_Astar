@@ -92,18 +92,19 @@ public class Maze {
 			{
 				if(grid[i][j] == false)
 				{
-					System.out.print("1 ");
+
+					System.out.print(" ◎");
 				}
 				else
 				{
-					System.out.print("0 ");
+					System.out.print(" ◇");
 				}		
 			}	
 			System.out.println("");
 		}
 		
 	}
-	
+
 	public void printPath(){
 		for(int i = 0; i < grid.length; i++)
 		{
@@ -111,17 +112,17 @@ public class Maze {
 			{
 				if(grid[i][j] == false)
 				{
-					System.out.print("1 ");
+					System.out.print(" ◎");
 				}
 				else if (path[i][j] == true)
 				{
-					System.out.print("2 ");
-				}		
-				else 
-				{
-					System.out.print("0 ");
+					System.out.print(" ♞");
 				}
-			}	
+				else
+				{
+					System.out.print(" ◇");
+				}
+			}
 			System.out.println("");
 		}
 	}
