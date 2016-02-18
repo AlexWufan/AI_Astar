@@ -201,17 +201,17 @@ public class Maze {
 				
 			}
 		}
-		
-		for(int i = 0; i < length; i++)
-		{
-			for(int j = 0; j <width; j++)
-			{
-				if(grid[i][j] == false)
-				{
-					System.out.println("grid[" + i + "]" + "[" + j + "]" + "=" + "false");
-				}
-			}
-		}
+//		
+//		for(int i = 0; i < length; i++)
+//		{
+//			for(int j = 0; j <width; j++)
+//			{
+//				if(grid[i][j] == false)
+//				{
+//					System.out.println("grid[" + i + "]" + "[" + j + "]" + "=" + "false");
+//				}
+//			}
+//		}
 		
 		
 	}
@@ -457,7 +457,7 @@ public class Maze {
 			expandedNodes.add(s);
 			
 			//System.out.println(s);
-			System.out.println(open);
+			//System.out.println(open);
 			pList.remove(s);
 			if(pList.size() == 0)
 			{
@@ -571,15 +571,15 @@ public class Maze {
 				this.hValue[node.get(0)][node.get(1)] = h;
 			}
 		}
-		for(int i = 0; i < length; i++)
-		{
-			for(int j = 0; j < width; j++)
-			{
-				System.out.print(this.hValue[i][j]);
-				System.out.print(" ");
-			}
-			System.out.println("");
-		}
+//		for(int i = 0; i < length; i++)
+//		{
+//			for(int j = 0; j < width; j++)
+//			{
+//				System.out.print(this.hValue[i][j]);
+//				System.out.print(" ");
+//			}
+//			System.out.println("");
+//		}
 		
 	}
 

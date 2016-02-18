@@ -7,10 +7,10 @@ public class AI_Astar {
 
 		int equal = 0;
 		
-//		for(int i = 0; i < 100; ++i)
-//		{
+		for(int i = 0; i < 100; ++i)
+		{
 		Maze maze = new Maze(101,101);
-		maze.initTestCase();
+		//maze.initTestCase();
 
 		maze.printMaze();
 		System.out.println(maze.startPoint);
@@ -23,21 +23,21 @@ public class AI_Astar {
 		System.out.println("");
 		maze.repeatedBAstar();
 
-//		if(maze.success)
-//		{
-//		if(b > a)
-//			count++;
-//		else if(b == a)
-//			equal++;
-//		else
-//		{
-//			System.out.println("*");
-//		}
-//		}
-//		}
-//
-//		System.out.println(count);
-//		System.out.println(equal);
+		if(maze.success)
+		{
+		if(b > a)
+			count++;
+		else if(b == a)
+			equal++;
+		else
+		{
+			System.out.println("*");
+		}
+		}
+		}
+
+		System.out.println(count);
+		System.out.println(equal);
 	}
 
 }
