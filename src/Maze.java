@@ -92,11 +92,11 @@ public class Maze {
 			{
 				if(grid[i][j] == false)
 				{
-					System.out.print("1");
+					System.out.print("1 ");
 				}
 				else
 				{
-					System.out.print("0");
+					System.out.print("0 ");
 				}		
 			}	
 			System.out.println("");
@@ -111,15 +111,15 @@ public class Maze {
 			{
 				if(grid[i][j] == false)
 				{
-					System.out.print("1");
+					System.out.print("1 ");
 				}
 				else if (path[i][j] == true)
 				{
-					System.out.print("2");
+					System.out.print("2 ");
 				}		
 				else 
 				{
-					System.out.print("0");
+					System.out.print("0 ");
 				}
 			}	
 			System.out.println("");
@@ -201,7 +201,16 @@ public class Maze {
 			}
 		}
 		
-		
+		for(int i = 0; i < length; i++)
+		{
+			for(int j = 0; j <width; j++)
+			{
+				if(grid[i][j] == false)
+				{
+					System.out.println("grid[" + i + "]" + "[" + j + "]" + "=" + "false");
+				}
+			}
+		}
 		
 		
 	}
@@ -447,7 +456,7 @@ public class Maze {
 			expandedNodes.add(s);
 			
 			//System.out.println(s);
-			//System.out.println(open);
+			System.out.println(open);
 			pList.remove(s);
 			if(pList.size() == 0)
 			{
@@ -551,17 +560,25 @@ public class Maze {
 		gValueOfG =  goal[targetPoint.get(0)][targetPoint.get(1)];
 		for(List<Integer> node:expandedNodes)
 		{
-			this.hValue[node.get(0)][node.get(1)] = gValueOfG - this.goal[node.get(0)][node.get(1)];
+			int h = gValueOfG - this.goal[node.get(0)][node.get(1)];
+			if(this.hValue[node.get(0)][node.get(1)] != 0)
+			{
+				this.hValue[node.get(0)][node.get(1)] = this.hValue[node.get(0)][node.get(1)] < h ? this.hValue[node.get(0)][node.get(1)] : h;
+			}
+			else
+			{
+				this.hValue[node.get(0)][node.get(1)] = h;
+			}
 		}
-//		for(int i = 0; i < length; i++)
-//		{
-//			for(int j = 0; j < width; j++)
-//			{
-//				System.out.print(this.hValue[i][j]);
-//				System.out.print(" ");
-//			}
-//			System.out.println("");
-//		}
+		for(int i = 0; i < length; i++)
+		{
+			for(int j = 0; j < width; j++)
+			{
+				System.out.print(this.hValue[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println("");
+		}
 		
 	}
 
@@ -675,14 +692,14 @@ public class Maze {
 	
 	public void initTestCase()
 	{
-		this.width = 5;
-		this.length = 5;
+		this.width = 10;
+		this.length = 10;
 		this.startPoint = new ArrayList<Integer>();
-		this.startPoint.add(4);
+		this.startPoint.add(2);
 		this.startPoint.add(2);
 		this.start = this.startPoint;
 		this.targetPoint = new ArrayList<Integer>();
-		this.targetPoint.add(4);
+		this.targetPoint.add(2);
 		this.targetPoint.add(4);
 		this.grid = new boolean[width][length];
 		for(int i = 0; i < length; i++)
@@ -692,15 +709,44 @@ public class Maze {
 				grid[i][j] = true;
 			}
 		}
-		grid[1][2] = false;
-		grid[2][2] = false;
-		grid[3][2] = false;
-		//grid[3][3] = false;
-		grid[4][3] = false;
+		grid[1][6]=false;
+				grid[1][7]=false;
+				grid[2][1]=false;
+				grid[2][3]=false;
+				grid[2][5]=false;
+				grid[2][8]=false;
+				grid[2][9]=false;
+				grid[3][3]=false;
+				grid[3][7]=false;
+				grid[4][1]=false;
+				grid[4][3]=false;
+				grid[4][4]=false;
+				grid[4][6]=false;
+				grid[4][7]=false;
+				grid[5][0]=false;
+				grid[5][8]=false;
+				grid[6][5]=false;
+				grid[6][6]=false;
+				grid[6][8]=false;
+				grid[7][0]=false;
+				grid[7][4]=false;
+				grid[7][8]=false;
+				grid[7][9]=false;
+				grid[8][3]=false;
+				grid[8][4]=false;
+				grid[8][9]=false;
+				grid[9][0]=false;
+				grid[9][5]=false;
+				grid[9][6]=false;
+				grid[9][7]=false;
 		path = new boolean[width][length];
 		visit = new boolean[width][length];
 		//grid[startPoint.get(0)][startPoint.get(1)] = true;
 		visit[startPoint.get(0)][startPoint.get(1)] = true;
+		
+
+		
+		
 	}
 	// calculate nomarl H value
 	private int h(List<Integer> s)
