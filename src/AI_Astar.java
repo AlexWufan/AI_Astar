@@ -9,7 +9,7 @@ public class AI_Astar {
 		
 		for(int i = 0; i < 100; ++i)
 		{
-		Maze maze = new Maze(101,101);
+		Maze maze = new Maze(10,10);
 		//maze.initTestCase();
 
 		maze.printMaze();

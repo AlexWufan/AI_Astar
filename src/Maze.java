@@ -8,6 +8,8 @@ public class Maze {
 	Integer width = 101;
 	Integer length = 101;
 	
+	boolean backward = false;
+	
 	boolean[][] path;
 	boolean[][] visit;
 	boolean[][] grid;
@@ -218,6 +220,13 @@ public class Maze {
 	
 	private void ComputePath()
 	{
+		if(backward == true)
+		{
+			List<Integer> tmp = startPoint;
+			startPoint = targetPoint;
+			targetPoint = tmp;
+		}
+		
 		//System.out.println("****");
 		Entry <Integer,List<List<Integer>>> first = open.firstEntry();
 		List<List<Integer>> pList = first.getValue();
@@ -313,7 +322,18 @@ public class Maze {
 			}
 			if(open.size() == 0)
 				break;
+//			for(int i = 0; i < length; i++)
+//			{
+//				for(int j = 0; j < width; j++)
+//				{
+//					System.out.print(tree[i][j][0]);
+//					System.out.print(tree[i][j][1]);
+//					System.out.print(" ");
+//				}
+//				System.out.println("");
+//			}
 			first = open.firstEntry();
+			
 			pList = first.getValue();
 			if(pList.size() == 0)
 			{
@@ -331,6 +351,13 @@ public class Maze {
 //				System.out.println("1st");
 //			}
 		}
+		if(backward == true)
+		{
+			List<Integer> tmp2 = startPoint;
+			startPoint = targetPoint;
+			targetPoint = tmp2;
+		}
+		
 	}
 	
 	public void repeatedFAstar()
@@ -350,14 +377,31 @@ public class Maze {
 		{
 			counter = counter + 1;
 			search[startPoint.get(0)][startPoint.get(1)] = counter;
-			goal[startPoint.get(0)][startPoint.get(1)] = 0;
+			
 			search[targetPoint.get(0)][targetPoint.get(1)] = counter;
+			if(this.backward == false)
+			{
+			goal[startPoint.get(0)][startPoint.get(1)] = 0;
 			goal[targetPoint.get(0)][targetPoint.get(1)] = Integer.MAX_VALUE;
+			}
+			else{
+				goal[startPoint.get(0)][startPoint.get(1)] = Integer.MAX_VALUE;
+				goal[targetPoint.get(0)][targetPoint.get(1)] = 0;
+			}
 			open = new TreeMap<Integer,List<List<Integer>>>();
 			close = new TreeMap();
 			List<List<Integer>> L = new ArrayList<List<Integer>> ();
-			L.add(startPoint);
-			open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
+			if(this.backward == true)
+			{
+				L.add(this.targetPoint);
+				open.put(goal[targetPoint.get(0)][targetPoint.get(1)] + h(targetPoint),L);
+			}
+			else
+			{
+				L.add(startPoint);
+				open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
+			}
+			
 			tree = new int[width][length][2];
 			ComputePath();
 
@@ -368,39 +412,66 @@ public class Maze {
 				break;
 			}
 			List<List<Integer>> route= new ArrayList<List<Integer>>();
-			point = targetPoint;
-			for(int i = 0; i < length; i++)
-//			{
-//				for(int j = 0; j < width; j++)
-//				{
-//					System.out.print(tree[i][j][0]);
-//					System.out.print(tree[i][j][1]);
-//					System.out.print(" ");
-//				}
-//				System.out.println("");
-//			}
-			while(!point.equals(startPoint))
+			if(this.backward == false)
 			{
-				route.add(point);
-				List<Integer>tmp =new ArrayList<Integer>();
-				tmp.add(tree[point.get(0)][point.get(1)][0]);
-				tmp.add(tree[point.get(0)][point.get(1)][1]);
-				point = tmp;
-			}
-			
-			for(int i = route.size() - 1; i >= 0 ; i--)
-			{
-				List<Integer> p = route.get(i);
-				if(grid[p.get(0)][p.get(1)] == false)
+				point = targetPoint;
+
+
+				while(!point.equals(startPoint))
 				{
-					if(i + 1 == route.size())
-						System.out.println("out of index");
-					startPoint = route.get(i + 1);
-					break;
+					route.add(point);
+					List<Integer>tmp =new ArrayList<Integer>();
+					tmp.add(tree[point.get(0)][point.get(1)][0]);
+					tmp.add(tree[point.get(0)][point.get(1)][1]);
+					point = tmp;
 				}
-				startPoint = p;
-				route_final.add(p);
-				setCost(p);
+				
+				for(int i = route.size() - 1; i >= 0 ; i--)
+				{
+					List<Integer> p = route.get(i);
+					if(grid[p.get(0)][p.get(1)] == false)
+					{
+						if(i + 1 == route.size())
+							System.out.println("out of index");
+						startPoint = route.get(i + 1);
+						break;
+					}
+					startPoint = p;
+					route_final.add(p);
+					setCost(p);
+				}
+			}
+			else
+			{
+				point = startPoint;
+				
+				while(!point.equals(targetPoint))
+				{
+					route.add(point);
+					List<Integer>tmp =new ArrayList<Integer>();
+					tmp.add(tree[point.get(0)][point.get(1)][0]);
+					tmp.add(tree[point.get(0)][point.get(1)][1]);
+					point = tmp;
+				}
+				if(this.backward == true)
+					route.add(point);
+				
+				for(int i = 0; i < route.size() ; i++)
+				{
+					List<Integer> p = route.get(i);
+					if(grid[p.get(0)][p.get(1)] == false)
+					{
+						if(i - 1 == route.size())
+							System.out.println("out of index");
+						startPoint = route.get(i - 1);
+						break;
+					}
+					startPoint = p;
+					route_final.add(p);
+					setCost(p);
+				}
+				
+				
 			}
 		}
 		point = targetPoint;
@@ -427,15 +498,17 @@ public class Maze {
 	
 	public void repeatedBAstar()
 	{
-		List<Integer> tmp = startPoint;
-		startPoint = targetPoint;
-		start = targetPoint;
-		targetPoint = tmp;
+		backward = true;
+		//List<Integer> tmp = startPoint;
+		//startPoint = targetPoint;
+		//start = targetPoint;
+		//targetPoint = tmp;
 		repeatedFAstar();
-		tmp = start;
-		start = targetPoint;
-		startPoint = start;
-		targetPoint = tmp;
+		//tmp = start;
+		//start = targetPoint;
+		//startPoint = start;
+		//targetPoint = tmp;
+		backward = false;
 	}
 
 	private void adaptiveComputePath()
@@ -610,8 +683,10 @@ public class Maze {
 			close = new TreeMap();
 			expanded = new boolean[width][length];
 			List<List<Integer>> L = new ArrayList<List<Integer>> ();
-			L.add(startPoint);
-			open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
+	
+				L.add(startPoint);
+				open.put(goal[startPoint.get(0)][startPoint.get(1)] + h(startPoint),L);
+	
 			adaptiveComputePath();
 
 			if(open.isEmpty())
