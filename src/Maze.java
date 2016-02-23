@@ -879,7 +879,7 @@ public class Maze {
 			///choose a strategy to pick nodes that have same values
 			for(List<Integer> n : pList)
 			{
-				if(goal[n.get(0)][n.get(1)] > goal[s.get(0)][s.get(1)]);
+				if(goal[n.get(0)][n.get(1)] > goal[s.get(0)][s.get(1)])
 					s = n;
 			}
 			

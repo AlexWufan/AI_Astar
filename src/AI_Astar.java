@@ -7,7 +7,7 @@ public class AI_Astar {
 		int smaller = 0;
 		int equal = 0;
 
-		for(int i = 0; i < 1; ++i)
+		for(int i = 0; i < 30; ++i)
 		{
 		Maze maze = new Maze(101, 101);
 		//maze.initTestCase();
@@ -19,7 +19,7 @@ public class AI_Astar {
 
 		System.out.println("Adaptive A* ");
 		maze.adaptiveAstar();
-//		int b = maze.numOfExpandNodes;
+		int b = maze.numOfExpandNodes;
 		System.out.println("");
 
 		System.out.println("Repeated forward A* ");
@@ -29,7 +29,7 @@ public class AI_Astar {
 
 		System.out.println("Repeated forward A* small g-value");
 		maze.repeatedFAstar2();
-		int b = maze.numOfExpandNodes;
+//		int b = maze.numOfExpandNodes;
 
 		System.out.println("");
 		System.out.println("Repeated backward A* ");
